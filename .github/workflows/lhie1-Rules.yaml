@@ -23,7 +23,7 @@ jobs:
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/lhie1/Rules/.git"
+          source_repo: "https://github.com/lhie1/Rules.git"
           source_branch: "master"
           destination_branch: "lhie1-Rules"
           github_token: ${{ secrets.PAT }}
