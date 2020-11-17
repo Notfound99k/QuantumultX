@@ -1,1 +1,1 @@
-Aautosync repository.
+Autosync for repository.
