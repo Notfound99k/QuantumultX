@@ -1,0 +1,50 @@
+# This is a basic workflow to help you get started with Actions
+
+name: sync
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the main branch
+on:
+  schedule:
+    - cron: '30 */12 * * *'
+  workflow_dispatch:
+  watch:
+    types: started
+  repository_dispatch:
+    types: sync
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  repo-sync:
+    env:
+      PAT: ${{ secrets.PAT }}
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id || github.event.sender.login == 'uuz'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: sync Zero-S1/xmly_speed
+        uses: fakedon/hub-mirror@main
+        with:
+          src: github/Zero-S1
+          dst: github/notfound99k
+          dst_key: ${{ secrets.UUZ_GITHUB_SSH_KEY }}
+          dst_token: ${{ secrets.UUZ_GITHUB_TOKEN }}
+          static_list: "xmly_speed"
+          account_type: org
+          rename_dst: true
+          # clone_style: https
+
+
+      - name: sync Zero-S1/xmly_speed
+        uses: fakedon/hub-mirror@main
+        with:
+          src: github/Zero-S1
+          dst: github/notfound99k
+          dst_key: ${{ secrets.UUZ_GITHUB_SSH_KEY }}
+          dst_token: ${{ secrets.UUZ_GITHUB_TOKEN }}
+          static_list: "xmly_speed"
+          account_type: org
+          rename_dst: true
+          # clone_style: https
