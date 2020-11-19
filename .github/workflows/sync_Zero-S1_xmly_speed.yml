@@ -36,15 +36,3 @@ jobs:
           rename_dst: true
           # clone_style: https
 
-
-      - name: sync Zero-S1/xmly_speed
-        uses: fakedon/hub-mirror@main
-        with:
-          src: github/Zero-S1
-          dst: github/notfound99k
-          dst_key: ${{ secrets.UUZ_GITHUB_SSH_KEY }}
-          dst_token: ${{ secrets.UUZ_GITHUB_TOKEN }}
-          static_list: "xmly_speed"
-          account_type: org
-          rename_dst: true
-          # clone_style: https
