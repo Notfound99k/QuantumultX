@@ -28,16 +28,15 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync lxk0301
-        uses: repo-sync/github-sync@v2
-        if: env.PAT
-        with:
-          source_repo: "https://github.com/lxk0301/jd_scripts.git"
-          source_branch: "master"
-          destination_branch: "lxk0301_jd_scripts"
-          github_token: ${{ secrets.PAT }}
+#      - name: sync lxk0301
+#        uses: repo-sync/github-sync@v2
+#        if: env.PAT
+#        with:
+#          source_repo: "https://github.com/lxk0301/jd_scripts.git"
+#          source_branch: "master"
+#          destination_branch: "lxk0301_jd_scripts"
+#          github_token: ${{ secrets.PAT }}
           
-
           
       - name: DivineEngine-Profiles
         uses: repo-sync/github-sync@v2
