@@ -37,14 +37,7 @@ jobs:
           destination_branch: "lxk0301_jd_scripts"
           github_token: ${{ secrets.PAT }}
           
-      - name: sync sazs34-scripts
-        uses: repo-sync/github-sync@v2
-        if: env.PAT
-        with:
-          source_repo: "https://github.com/sazs34/MyActions.git"
-          source_branch: "master"
-          destination_branch: "sazs34_Myactions"
-          github_token: ${{ secrets.PAT }}
+
           
       - name: DivineEngine-Profiles
         uses: repo-sync/github-sync@v2
@@ -136,5 +129,13 @@ jobs:
           source_branch: "master"
           destination_branch: "yichahucha-surge"
           github_token: ${{ secrets.PAT }}
-          
+
+      - name: sync sazs34-scripts
+        uses: repo-sync/github-sync@v2
+        if: env.PAT
+        with:
+          source_repo: "https://github.com/sazs34/MyActions.git"
+          source_branch: "master"
+          destination_branch: "sazs34_Myactions"
+          github_token: ${{ secrets.PAT }}
 
